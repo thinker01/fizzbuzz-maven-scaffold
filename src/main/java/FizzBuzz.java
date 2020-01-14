@@ -5,10 +5,14 @@
  * @Modified by:
  */
 public class FizzBuzz {
-    public String printVal(int val){
+    public String printVal(int val) {
         String res = "";
-        if(val%3 == 0) res += "Fizz";
-        if(val%5 == 0) res += "Buzz";
-        return res.equals("")?String.valueOf(val):res;
+        if (val % 3 == 0) {
+            res += "Fizz";
+        }
+        if (val % 5 == 0) {
+            res += "Buzz";
+        }
+        return res.equals("") ? String.valueOf(val) : res;
     }
 }
