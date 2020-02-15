@@ -1,4 +1,5 @@
-import org.junit.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -6,17 +7,20 @@ import static org.junit.Assert.assertThat;
 /**
  * @Author: mmliu
  * @Description:
- * @Date: Created in 20:27 2020/1/14
+ * @Date: Created in 20:27 2020/2/14
  * @Modified by:
  */
 public class FizzBuzzTest {
-    @Test
-    public void TestFizzBuzz(){
-        FizzBuzz fizzBuzz = new FizzBuzz();
-        assertThat(fizzBuzz.printVal(1),is("1"));
-        assertThat(fizzBuzz.printVal(3),is("Fizz"));
-        assertThat(fizzBuzz.printVal(5),is("Buzz"));
-        assertThat(fizzBuzz.printVal(15),is("FizzBuzz"));
-    }
 
+    @ParameterizedTest
+    @CsvSource({
+            "1,1",
+            "3,Fizz",
+            "5,Buzz",
+            "15,FizzBuzz"
+    })
+    void testFizz(int val,String out){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        assertThat(fizzBuzz.getVal(val),is(out));
+    }
 }
